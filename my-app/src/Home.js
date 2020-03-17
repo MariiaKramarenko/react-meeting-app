@@ -2,6 +2,7 @@ import React  from 'react';
 
 class Home extends React.Component {
   render() {
+    const { user } = this.props;
     return (
       <div className="container text-center">
         <div className="row justify-content-center">
@@ -14,18 +15,27 @@ class Home extends React.Component {
               in, and picks random users to award giveaways. 
             </p>
 
-            <a
-              href="/register"
-              className="btn btn-outline-primary mr-2"
-            >
-              Register
-            </a>
-            <a href="/login" className="btn btn-outline-primary mr-2">
-              Log In
-            </a>
-            <a href="/meetings" className="btn btn-primary">
-              Meetings
-            </a>
+            {user == null && (
+              <span>
+                <a
+                  href="/register"
+                  className="btn btn-outline-primary mr-2"
+                >
+                  Register
+                </a>
+                <a
+                  href="/login"
+                  className="btn btn-outline-primary mr-2"
+                >
+                  Log In
+                </a>
+              </span>
+            )}
+            {user && (
+              <a href="/meetings" className="btn btn-primary">
+                Meetings
+              </a>
+            )}
           </div>{' '}
           {/* columns */}
         </div>

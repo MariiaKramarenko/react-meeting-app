@@ -5,8 +5,15 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Home from './Home';
 
 class App extends React.Component {
-  render() {
-    return <Home />;
+  constructor() {
+    super();
+    this.state = {
+      user: null
+    };
+  }
+ render() {
+
+    return <Home user={this.state.user} />;
   }
 }
 
