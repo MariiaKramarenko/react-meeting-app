@@ -1,8 +1,10 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.css';
 import Home from './Home';
+import Welcome from './Welcome';
+import Navigation from './Navigation';
+import Login from './Login';
+import Register from './Register';
+import Meetings from './Meetings';
 
 class App extends React.Component {
   constructor() {
@@ -11,9 +13,19 @@ class App extends React.Component {
       user: null
     };
   }
- render() {
 
-    return <Home user={this.state.user} />;
+  render() {
+    return (
+      <div>
+        <Navigation user={this.state.user} />
+        {this.state.user && <Welcome user={this.state.user} />}
+          <Home path="/" user={this.state.user} />
+          <Login path="/login" />
+          <Meetings path="/meetings" />
+          <Register path="/register" />
+
+      </div>
+    );
   }
 }
 

@@ -1,8 +1,9 @@
 import React  from 'react';
+import {NavLink} from 'react-router-dom';
 
 class Home extends React.Component {
   render() {
-    const { user } = this.props;
+    const { user } = this.props;//use state data with props
     return (
       <div className="container text-center">
         <div className="row justify-content-center">
@@ -15,26 +16,26 @@ class Home extends React.Component {
               in, and picks random users to award giveaways. 
             </p>
 
-            {user == null && (
+             {user == null && (
               <span>
-                <a
-                  href="/register"
+                <NavLink
+                  to="/register"
                   className="btn btn-outline-primary mr-2"
                 >
                   Register
-                </a>
-                <a
-                  href="/login"
+                </NavLink>
+                <NavLink
+                  to="/login"
                   className="btn btn-outline-primary mr-2"
                 >
                   Log In
-                </a>
+                </NavLink>
               </span>
             )}
             {user && (
-              <a href="/meetings" className="btn btn-primary">
+              <NavLink to="/meetings" className="btn btn-primary">
                 Meetings
-              </a>
+              </NavLink>
             )}
           </div>{' '}
           {/* columns */}
