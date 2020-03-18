@@ -1,6 +1,6 @@
 import React from 'react';
 
-class FormError extends React.Component {
+class FormError extends React.Component {//component for cath errors in form for register
   render() {
     const { theMessage } = this.props;//error message
 

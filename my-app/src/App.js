@@ -10,10 +10,11 @@ import firebase from './Firebase.js';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
+    this.state = {//initial state
       user: null
     };
   }
+
   componentDidMount() {
     const ref = firebase.database().ref('user');
 
