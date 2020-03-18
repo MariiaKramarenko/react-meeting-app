@@ -5,6 +5,7 @@ import Navigation from './Navigation';
 import Login from './Login';
 import Register from './Register';
 import Meetings from './Meetings';
+import firebase from './Firebase.js';
 
 class App extends React.Component {
   constructor() {
@@ -12,6 +13,14 @@ class App extends React.Component {
     this.state = {
       user: null
     };
+  }
+  componentDidMount() {
+    const ref = firebase.database().ref('user');
+
+    ref.on('value', snapshot => {
+      let FBUser = snapshot.val();
+      this.setState({ user: FBUser });
+    });
   }
 
   render() {
