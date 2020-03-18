@@ -1,10 +1,10 @@
 import React from 'react';
-import Home from './Home';
-import Welcome from './Welcome';
-import Navigation from './Navigation';
-import Login from './Login';
-import Register from './Register';
-import Meetings from './Meetings';
+import Home from './components/Home';
+import Welcome from './components/Welcome';
+import Navigation from './components/Navigation';
+import Login from './components/Login';
+import Register from './components/Register';
+import Meetings from './components/Meetings';
 import firebase from './Firebase.js';
 
 class App extends React.Component {
