@@ -1,4 +1,5 @@
 import React from 'react';
+import FormError from '../form/FormError.js';
 
 class Register extends React.Component {
   constructor() {
@@ -7,7 +8,8 @@ class Register extends React.Component {
       displayName: '',
       email: '',
       passOne: '',
-      passTwo: ''
+      passTwo: '',
+      errorMessage: null
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -17,12 +19,17 @@ class Register extends React.Component {
     const itemName = e.target.name;
     const itemValue = e.target.value;
 
-    this.setState({ [itemName]: itemValue });
+    this.setState({ [itemName]: itemValue }, () => {
+      if (this.state.passOne !== this.state.passTwo) {
+        this.setState({ errorMessage: 'Passwords no not match' });
+      } else {
+        this.setState({ errorMessage: null });
+      }
+    });
   }
 
   render() {
     return (
-
       <form className="mt-3">
         <div className="container">
           <div className="row justify-content-center">
@@ -31,6 +38,11 @@ class Register extends React.Component {
                 <div className="card-body">
                   <h3 className="font-weight-light mb-3">Register</h3>
                   <div className="form-row">
+                    {this.state.errorMessage !== null ? (
+                      <FormError
+                        theMessage={this.state.errorMessage}
+                      />
+                    ) : null}
                     <section className="col-sm-12 form-group">
                       <label
                         className="form-control-label sr-only"
